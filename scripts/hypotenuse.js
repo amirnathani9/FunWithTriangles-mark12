@@ -12,15 +12,21 @@ function calculateSumOfSquares(a,b){
 function calculateLength(){
     const sumOfSquares = calculateSumOfSquares(Number(inputSide[0].value), Number(inputSide[1].value));
     const lengthOfHypotenuse = Math.sqrt(sumOfSquares);
-    outputBox.innerText = "The Length of Hypotenuse is " + lengthOfHypotenuse;
+    outputBox.innerText = "The Length of Hypotenuse is " + lengthOfHypotenuse.toFixed(2);
 }
 
 function calculateHypotenuse() {
-    if(inputSide[0].value && inputSide[1].value){
-        calculateLength(inputSide.value)
+    var side1 =inputSide[0].value;
+    var side2 =inputSide[1].value;
+    if(!side1 || !side2) {
+        outputBox.innerText = `Please enter all the fields`
+    }
+    
+    else if(side1 < 1 || side2 <1){
+        outputBox.innerText = `The value should not be negative or zero`
     }
     else{
-        outputBox.innerText="Input all the values"
+        calculateLength(inputSide.value)
     } 
     
     

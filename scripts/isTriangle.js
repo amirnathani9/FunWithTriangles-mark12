@@ -19,12 +19,18 @@ function showOutput(){
 
 
 function isTriangle() {
-
-    if(inputAngle[0].value&&inputAngle[1].value&&inputAngle[2].value){
-        showOutput(inputAngle.value)
+    var angle1 = inputAngle[0].value;
+    var angle2 = inputAngle[1].value;
+    var angle3 = inputAngle[2].value
+    if(!angle1 || !angle2 || !angle3){
+        outputBox.innerText = `Please enter all the fields`
+    }
+    
+    else if(angle1 < 0 || angle2 < 0 || angle3 < 0){
+        outputBox.innerText = `The value should not be negative`
     }
     else{
-        outputBox.innerText="Input all the values"
+        showOutput(inputAngle.value)
     } 
 }
 
